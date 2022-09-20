@@ -6,14 +6,14 @@ import "./style/style.css";
 function App() {
   const url = "https://course-api.com/react-tabs-project";
   const [data, setData] = useState([]);
-  const [index, setIndex] = useState(0);
+  const [value, setValue] = useState(0);
   const [loading, setLoading] = useState(true);
 
   const getData = async () => {
     try {
       const response = await fetch(url);
       const fetchData = await response.json();
-      console.log(fetchData);
+      // console.log(fetchData);
 
       setData(fetchData);
       setLoading(false);
@@ -30,7 +30,7 @@ function App() {
     return <h1 className="loading">Loading...</h1>;
   }
 
-  const { company, title, dates, duties } = data[index];
+  const { company, title, dates, duties } = data[value];
 
   return (
     <main className="App">
@@ -39,9 +39,17 @@ function App() {
       </section>
       <section className="experience__container">
         <article className="btn__container">
-          {data.map((ele) => {
+          {data.map((ele, index) => {
             return (
-              <button className="btn btn__company" key={ele.id}>
+              <button
+                onClick={() => {
+                  setValue(index);
+                }}
+                className={` btn btn__company ${
+                  index === value && "btn__company--active"
+                }`}
+                key={ele.id}
+              >
                 {ele.company}
               </button>
             );
@@ -53,11 +61,12 @@ function App() {
           <p className="experience__dates">{dates}</p>
           {duties.map((ele, index) => {
             return (
-              <article key={index}>
+              <article key={index} className="experience__text--paragraph">
                 <FaAngleDoubleRight /> <p className="experience__text">{ele}</p>
               </article>
             );
           })}
+          <button className="btn btn__more-info">More info</button>
         </article>
       </section>
     </main>

@@ -62,9 +62,11 @@ img {
 /* mobile */
 .experience {
   text-align: center;
-  padding: 1rem;
+  margin-top: 1.2rem;
   letter-spacing: 1px;
   color: rgb(0, 0, 0);
+  color: green;
+  text-decoration: underline;
 }
 
 .experience__container {
@@ -77,4 +79,98 @@ img {
 
 .loading {
   text-align: center;
+  margin-top: 4rem;
+}
+
+.btn__container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.btn {
+  width: 60%;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  max-width: 150px;
+  background-color: gray;
+  color: white;
+  border: none;
+  transition: var(--transition-8);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: white;
+  color: green;
+}
+
+.btn__company {
+  border: 1px solid black;
+}
+
+.btn__company--active {
+  border: 1px solid green;
+  border-left: 6px solid green;
+}
+
+.experience__content {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.experience__title {
+  padding: 1rem 0;
+}
+
+.experience__company {
+  margin-bottom: 1rem;
+  background-color: gray;
+  padding: 0.3rem;
+  color: white;
+  letter-spacing: 1px;
+  width: 130px;
+  text-align: center;
+}
+
+.experience__dates {
+  padding-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: green;
+  letter-spacing: 1px;
+}
+
+.experience__text--paragraph {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: green;
+}
+
+.experience__text {
+  display: inline;
+  color: #000;
+}
+
+.btn__more-info {
+  border: 1px solid black;
+}
+
+@media (min-width: 768px) {
+  .experience__container {
+    grid-template-columns: 0.6fr 1fr;
+  }
+
+  .btn__container {
+    margin-top: 3rem;
+    margin-left: 3rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .experience__container {
+    grid-template-columns: 0.4fr 1fr;
+  }
 }
